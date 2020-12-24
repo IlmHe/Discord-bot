@@ -1,6 +1,6 @@
 const fs = require("fs");
-let rawcock = fs.readFileSync("./cock.json");
-let cock = JSON.parse(rawcock);
+let rawdata = fs.readFileSync("./ids.json");
+let ids = JSON.parse(rawdata);
 module.exports = {
   execute(message) {
     if (message.content.startsWith("!addstfu")) {
@@ -16,22 +16,20 @@ module.exports = {
         message.channel.send(`FUCK YOU ${user.username} :angry: :angry: `);
         return;
       }
-      rawcock = fs.readFileSync("cock.json");
-      console.log(rawcock);
-      cock = JSON.parse(rawcock);
-      console.log(cock);
-      if (!cock.cocks.includes(stfuid)) {
-        cock.cocks.push(stfuid);
-        let cockdata = JSON.stringify(cock);
-        fs.writeFileSync("cock.json", cockdata);
+      rawdata = fs.readFileSync("ids.json");
+      ids = JSON.parse(rawdata);
+      if (!ids.ids.includes(stfuid)) {
+        ids.ids.push(stfuid);
+        let idsdata = JSON.stringify(ids);
+        fs.writeFileSync("ids.json", idsdata);
       } else {
-        message.reply("FUCK YOU NIGGA");
+        message.reply("Id already is in the list");
       }
       return;
     }
-    rawcock = fs.readFileSync("./cock.json");
-    cock = JSON.parse(rawcock);
-    if (cock.cocks.includes(message.author.id)) {
+    rawdata = fs.readFileSync("./ids.json");
+    ids = JSON.parse(rawdata);
+    if (ids.ids.includes(message.author.id)) {
       message.channel.send("stfu");
     }
   },
