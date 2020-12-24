@@ -1,28 +1,21 @@
-let stfuid;
+const fs = require("fs");
+let rawcock = fs.readFileSync("cock.json");
+let cock = JSON.parse(rawcock);
 module.exports = {
 	execute(message) {
-		if (message.content.startsWith('!stfu')) {
+		if (message.content.startsWith('!addstfu')) {
 			const words = message.content.split(' ');
-			stfuid = words[1];
-			if (stfuid == undefined) {
+			let stfuid = words[1];
+			if (stfuid == undefined||stfuid.length !== 18||isNaN(stfuid)||isNaN(stfuid)) {
 				const user = message.author;
-				message.channel.send(`Need discord id ${user.username} :angry: :angry: `);
+				message.channel.send(`FUCK YOU ${user.username} :angry: :angry: `);
 				return;
 			}
-			if (stfuid.length == 18) {
-				message.react('👍');
-				return;
-			}
-			if (isNaN(stfuid)) {
-				const user = message.author;
-				message.channel.send(`This is not a number! ${user.username} :angry: :angry: `);
-				return;
-			}
-			else {
-				const user = message.author;
-				message.channel.send(`This is not a valid id! ${user.username} :angry: :angry: `);
-				return;
-			}
+			rawcock = fs.readFileSync("cock.json");
+			cock = JSON.parse(rawcock);
+			cock[cock].push(stfuid)
+			let cockdata = JSON.stringify(cock);
+			fs.writeFileSync("cock.json", cockdata);
 		}
 		if (message.author.id == stfuid) {
 			message.channel.send('stfu');
