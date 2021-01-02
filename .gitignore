@@ -1,3 +1,6 @@
 /node_modules
 config.json
 ids.json
+eslintrc.json
+package.json
+package-lock.json
