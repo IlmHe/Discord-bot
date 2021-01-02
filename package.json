@@ -13,14 +13,4 @@
     "eslint": "^7.16.0",
     "ffmpeg-static": "^4.2.7",
     "ytdl-core": "^4.2.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BurgerBob00/Discordbot.git"
-  },
-  "bugs": {
-    "url": "https://github.com/BurgerBob00/Discordbot/issues"
-  },
-  "homepage": "https://github.com/BurgerBob00/Discordbot#readme",
-  "description": ""
-}
+  }
